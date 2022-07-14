@@ -18,33 +18,31 @@ export const MiFormulario = () => {
 
     const enviado = (e)=>{
         e.preventDefault()
-        
-        // let curso = {
-        //     titulo: e.target.titulo.value,
-        //     anio: e.target.anio.value,
-        //     descripcion: e.target.descripcion.value,
-        //     autor: e.target.autor.value,
-        //     email: e.target.email.value,
-        // }
+        //const curso = serializarForm(e.target//)
         //setFormulario(curso)
+        console.log(formulario)
+    }
 
-        const curso = serializarForm(e.target)
-        setFormulario(curso)
+    const cambiado = (e)=>{
+        setFormulario({
+            ...formulario,
+            [e.target.name] : e.target.value
+        })
     }
 
   return (
     <div>
         <h1>Mi formulario</h1>
         <p>Formulario para guardar datos de un curso</p>
-        <p>Curso guardado:</p>
-        <pre>{JSON.stringify(formulario)}</pre>
+        <p>Curso guardado: {formulario.titulo}</p>
+        <pre className='codigo'>{JSON.stringify(formulario)}</pre>
     
         <form onSubmit={enviado} className='mi-formulario'>
-            <input type="text" name="titulo" placeholder='Titulo...' />
-            <input type="number" name="anio" placeholder='Año publicacion...' />
-            <textarea name="descripcion" placeholder='Descripcion...'></textarea>
-            <input type="text" name="autor" placeholder='Autor...' />
-            <input type="email" name="email" placeholder='Correo de contacto' />
+            <input onChange={(e)=> cambiado(e)} type="text" name="titulo" placeholder='Titulo...' />
+            <input onChange={(e)=> cambiado(e)} type="number" name="anio" placeholder='Año publicacion...' />
+            <textarea onChange={(e)=> cambiado(e)} name="descripcion" placeholder='Descripcion...'></textarea>
+            <input onChange={(e)=> cambiado(e)} type="text" name="autor" placeholder='Autor...' />
+            <input onChange={(e)=> cambiado(e)} type="email" name="email" placeholder='Correo de contacto' />
 
             <input type="submit" value="Enviar"/>
         </form>
