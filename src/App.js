@@ -1,6 +1,7 @@
 
 import './App.css';
-import { MiFormulario } from './components/MiFormulario';
+//import { MiFormulario } from './components/MiFormulario';
+import { MiUsuario } from './components/MiUsuario';
 //import { MiComponente } from './components/MiComponente';
 //import { PruebasCustom } from './components/PruebasCustom';
 
@@ -11,9 +12,10 @@ function App() {
       <header className="App-header">
        {/*  <MiComponente /> */}
        {/* <PruebasCustom /> */}
-      <MiFormulario />
+       {/*  <MiFormulario /> */}
 
-      
+      <MiUsuario />
+
       </header>
     </div>
   );
